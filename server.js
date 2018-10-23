@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs'); //for dynamic html pages where the file has the extension as hbs (handlebars)
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -52,4 +53,6 @@ app.get('/projects', (req,res) => {
     });
 });
 
-app.listen(3000);
+app.listen(port, ()=> {
+    console.log(`Server is running on port ${port}`);
+});
